@@ -1,7 +1,43 @@
-# Welcome to your Expo app 👋
+<!-- Improved compatibility of back to top link: See: https://github.com/rayanthoney/ram_movie_app/pull/73 -->
+<a id="readme-top"></a>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+<br>
+<div align="center">
+   <a href="https://github.com/rayanthoney/ram_movie_app">
+    <img src="assets/images/react-logo@2x.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Welcome to your Expo app 👋</h3>
+
+   <p align="center">
+    This is an Expo project created with create-expo-app.
+    <br />
+    <a href="https://github.com/rayanthoney/ram_movie_app"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/rayanthoney/ram_movie_app">View Demo</a>
+    &middot;
+    <a href="https://github.com/rayanthoney/ram_movie_app/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    &middot;
+    <a href="https://github.com/rayanthoney/ram_movie_app/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+  </p>
+
+</div>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[product-screenshot]: assets/images/adaptive-icon.png
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+
+<!-- 
 ## Get started
 
 1. Install dependencies
@@ -47,4 +83,4 @@ To learn more about developing your project with Expo, look at the following res
 Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions. -->
