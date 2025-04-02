@@ -4,7 +4,15 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
+
+<div align="center" >
+<!-- link to project -->
+    <a href='-URL TO DEMO GOES HERE-'>
+    <!-- link to local image -->
+        <img src="assets/images/rn_movie.jpg" alt="" height="100%"/>
+    </a>
+</div>
 
 <br>
 <div align="center">
