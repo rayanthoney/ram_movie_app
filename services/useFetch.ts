@@ -5,19 +5,19 @@ const useFetch = <T>(fetchFunction: () => Promise<T>, autoFetch = true) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const fetchData = async () => {
-    try {
+  const fetchData = async () => { 
+    try {  
       setLoading(true);
       setError(null);
 
-      const results = await fetchFunctions();
+      const result = await fetchFunction();
 
-      setData(results);
+      setData(result);
     } catch (err) {
       // @ts-ignore
       setError(err instanceof Error ? err : new Error("An error occurred"));
     } finally {
-      setLoading(false);
+      setLoading(false); 
     }
   };
 
@@ -28,7 +28,7 @@ const useFetch = <T>(fetchFunction: () => Promise<T>, autoFetch = true) => {
   };
 
   useEffect(() => {
-    if (autoFetch) {
+    if(autoFetch) {
       fetchData();
     }
   }, []);
