@@ -72,7 +72,7 @@ and many more, including code architecture and reusability.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[product-screenshot]: assets/images/bg.png
+[product-screenshot]: assets/images/rn_movie.jpg
 
 [React_Native]: https://img.shields.io/badge/-React_Native-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB
 [React_Native-url]: https://example.com/
