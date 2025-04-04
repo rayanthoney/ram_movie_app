@@ -1,21 +1,35 @@
 import { View, Text, Image, FlatList, ActivityIndicator } from "react-native";
-import React from "react";
 import { images } from "@/constants/images";
-import MovieCard from "@/components/MovieCard";
-import { useRouter } from "expo-router";
 import useFetch from "@/services/useFetch";
 import { fetchMovies } from "@/services/api";
+import MovieCard from "@/components/MovieCard";
 import { icons } from "@/constants/icons";
-import { SearchBar } from "react-native-screens";
+import SearchBar from "@/components/SearchBar";
+import { useEffect, useState } from "react";
 
-const search = () => {
-  const router = useRouter();
+const Search = () => {
+  const [searchQuery, setSearchQuery] = useState("");
 
   const {
     data: movies,
-    loading: moviesLoading,
-    error: moviesError,
-  } = useFetch(() => fetchMovies({ query: "" }));
+    loading,
+    error,
+    refetch: loadMovies,
+    reset,
+  } = useFetch(() => fetchMovies({ query: searchQuery }), false); // Recheck this line UI dissapears
+
+  // Debounced search effect
+    useEffect(() => {
+      const timeoutId = setTimeout(async () => {
+    if (searchQuery.trim()) {
+     await loadMovies()
+    } else {
+      reset();
+    }
+  }, 500);
+
+  return () => clearTimeout(timeoutId);
+    }, [searchQuery]);
 
   return (
     <View className="flex-1 bg-primary ">
@@ -43,19 +57,37 @@ const search = () => {
               <Image source={icons.logo} className="w-12 h-10" />
             </View>
 
-            <View className="my-5">
-              <SearchBar
-                placeholder="Search for a movie"
+            <View>
+              <SearchBar 
+                placeholder="Search movies..." 
+                value={searchQuery}
+                onChangeText={(text: string) => setSearchQuery(text)}
               />
             </View>
 
-            {moviesLoading && (
+            {loading && (
               <ActivityIndicator
                 size="large"
                 color="#0000ff"
                 className="my-3"
               />
             )}
+
+            {error && (
+              <Text className="text-red-500 px-5 my-3">
+                Error: {error?.message}
+              </Text>
+            )}
+
+            {!loading &&
+              !error &&
+              searchQuery.trim() &&
+              movies?.length > 0 && (
+                <Text className="text-xl text-white font-bold mt-5 mb-3 px-5">
+                  Search Results for {" "}
+                  <Text className="text-accent">{searchQuery}</Text>
+                </Text>
+              )}
           </>
         }
       />
@@ -63,4 +95,4 @@ const search = () => {
   );
 };
 
-export default search;
+export default Search;
