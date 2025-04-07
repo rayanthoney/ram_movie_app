@@ -16,7 +16,7 @@ export const updateSearchCount = async (query: string, movie: Movie) => {
   ])
 
   //  check if a record if that search has already been stored 
-  if(result.documents.length > 0) {
+  if (result.documents.length > 0) {
     const existingMovie = result.documents[0];
 
     await database.updateDocument(
@@ -32,6 +32,7 @@ export const updateSearchCount = async (query: string, movie: Movie) => {
       searchTerm: query,
       movie_id: movie.id,
       count: 1,
+      title: movie.title,
       poster_url: `https://image.tmdb.org/t/p/w500${movie.poster_path}`, 
     })
   }
@@ -44,3 +45,12 @@ export const updateSearchCount = async (query: string, movie: Movie) => {
   // if no document is found
   // create a new document in Appwrite database --> 1
 };
+
+export const getSearchCount = async (): Promise<TrendingMovie[] | undefined > => {
+  try {
+    
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
