@@ -12,7 +12,7 @@
 <!-- link to project -->
     <a href='-URL TO DEMO GOES HERE-'>
     <!-- link to local image -->
-        <img src="assets/images/rn_movie.jpg" alt="" height=""/>
+        <img src="assets/images/android_ios3.png" alt="" height=""/>
     </a>
 </div>
 
