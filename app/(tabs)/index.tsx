@@ -75,8 +75,8 @@ export default function Index() {
                 renderItem={({ item, index }) => (
                   <TrendingCard movie={item} index={index} />
                 )}
-                keyExtractor={(item) => item.movie_id.toString()} // Ensure `movie_id` is unique
-                // keyExtractor={(item, index) => `${item.movie_id}-${index}`} // Error goes away 
+                // keyExtractor={(item) => item.movie_id.toString()} // Ensure `movie_id` is unique
+                keyExtractor={(item, index) => `${item.movie_id}-${index}`} // Error goes away 
               />
 
               <Text className="text-lg text-white font-bold mt-5 mb-3">
