@@ -40,9 +40,8 @@ export const fetchMovieDetails = async (
       }
     );
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch movie details`);
-    }
+    if (!response.ok) throw new Error('Failed to fetch movie details');
+    
 
     const data = await response.json();
     return data;
@@ -52,4 +51,5 @@ export const fetchMovieDetails = async (
     throw error;
   }
 };
+
 // /discover/movie
