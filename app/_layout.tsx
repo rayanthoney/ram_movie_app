@@ -6,10 +6,10 @@ export default function RootLayout() {
   return (
     <>
       <StatusBar hidden={true} />
-
+       {/* Hides the status bar, but pushes the searchBar down  */}
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="movie/[id]" options={{ headerShown: false }} />
+        <Stack.Screen name="movies/[id]" options={{ headerShown: false }} />
       </Stack>
     </>
   );

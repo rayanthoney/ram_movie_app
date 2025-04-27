@@ -11,6 +11,7 @@ import { updateSearchCount } from "@/services/appwrite";
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Custom hooks to fetch movies
   const {
     data: movies,
     loading,
@@ -34,12 +35,12 @@ const Search = () => {
 
   useEffect(() => {
     if (movies?.length > 0 && movies?.[0]) {
-      updateSearchCount(searchQuery, movies[0]);
+       updateSearchCount(searchQuery, movies[0]);
     }
   }, [movies]);
 
   return (
-    <View className="flex-1 bg-primary ">
+    <View className="flex-1 bg-primary">
       <Image
         source={images.bg}
         className="flex-1 absolute w-full z-0"
@@ -54,7 +55,7 @@ const Search = () => {
         numColumns={3}
         columnWrapperStyle={{
           justifyContent: "center",
-          gap: 16,
+          gap: 10,
           marginVertical: 16,
         }}
         contentContainerStyle={{ paddingBottom: 100 }}
@@ -64,9 +65,9 @@ const Search = () => {
               <Image source={icons.logo} className="w-12 h-10" />
             </View>
 
-            <View>
+            <View className="my-5">
               <SearchBar
-                placeholder="Search movies..."
+                placeholder="Search through 300+ movies online"
                 value={searchQuery}
                 onChangeText={(text: string) => setSearchQuery(text)}
               />
@@ -81,13 +82,13 @@ const Search = () => {
             )}
 
             {error && (
-              <Text className="text-red-500 px-5 my-3">
+              <Text className="text-red px-5 my-3">
                 Error: {error?.message}
               </Text>
             )}
 
             {!loading && !error && searchQuery.trim() && movies?.length > 0 && (
-              <Text className="text-xl text-white font-bold mt-5 mb-3 px-5">
+              <Text className="text-xl text-white font-bold">
                 Search Results for{" "}
                 <Text className="text-accent">{searchQuery}</Text>
               </Text>
@@ -96,9 +97,11 @@ const Search = () => {
         }
         ListEmptyComponent={
           !loading && !error ? (
-            <View>
+            <View className="mt-10 px-5">
               <Text className="text-center text-gray-500">
-                {searchQuery.trim() ? "No movies found" : "Search for a movie"}
+                {searchQuery.trim()
+                  ? "No movies found"
+                  : "Search for a movie..."}
               </Text>
             </View>
           ) : null
