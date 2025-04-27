@@ -1,4 +1,5 @@
 import { Client, Databases, ID, Query } from "react-native-appwrite";
+// track the searches made by the user
 
 const DATABASE_ID = process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!;
 const COLLECTION_ID = process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_ID!;
@@ -15,16 +16,15 @@ export const updateSearchCount = async (query: string, movie: Movie) => {
       Query.equal("searchTerm", query),
     ]);
 
-    //  check if a record if that search has already been stored
+    // Check if a record of that search has already been stored
     if (result.documents.length > 0) {
       const existingMovie = result.documents[0];
-
       await database.updateDocument(
         DATABASE_ID,
         COLLECTION_ID,
         existingMovie.$id,
         {
-          count: existingMovie.searchCount + 1,
+          count: existingMovie.count + 1,
         }
       );
     } else {
@@ -41,9 +41,8 @@ export const updateSearchCount = async (query: string, movie: Movie) => {
     throw error;
   }
 
-  // if a document is found increment the searchCount field
-  // if no document is found
-  // create a new document in Appwrite database --> 1
+  // If a documnet is found increment the searchCount field
+  // If no document is found create a new document with in Appwrite database set to 1
 };
 
 export const getTrendingMovies = async (): Promise<
@@ -56,6 +55,7 @@ export const getTrendingMovies = async (): Promise<
     ]);
 
     return result.documents as unknown as TrendingMovie[];
+
   } catch (error) {
     console.log(error);
     return undefined;
