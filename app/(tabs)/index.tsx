@@ -98,7 +98,7 @@ export default function Index() {
                 className="mt-2 pb-32"
                 scrollEnabled={false}
               />
-            </>
+           </>
           </View>
         )}
       </ScrollView>

@@ -11,7 +11,7 @@ import { updateSearchCount } from "@/services/appwrite";
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Custom hooks to fetch movies
+  //  Custom hooks to fetch movies
   const {
     data: movies,
     loading,

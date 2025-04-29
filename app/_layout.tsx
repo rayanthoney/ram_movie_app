@@ -5,7 +5,7 @@ import { StatusBar } from "react-native";
 export default function RootLayout() {
   return (
     <>
-      <StatusBar hidden={true} />
+      {/* <StatusBar hidden={true} /> */}
        {/* Hides the status bar, but pushes the searchBar down  */}
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
