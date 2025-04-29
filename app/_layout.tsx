@@ -1,16 +1,17 @@
 import { Stack } from "expo-router";
 import "./globals.css";
-import { StatusBar } from "react-native";
+import { SafeAreaView, StatusBar } from "react-native";
 
 export default function RootLayout() {
   return (
     <>
-      {/* <StatusBar hidden={true} /> */}
-       {/* Hides the status bar, but pushes the searchBar down  */}
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="movies/[id]" options={{ headerShown: false }} />
-      </Stack>
+      <SafeAreaView className="flex-1 bg-primary">
+        <StatusBar hidden={true} />
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="movies/[id]" options={{ headerShown: false }} />
+        </Stack>
+      </SafeAreaView>
     </>
   );
 }
